@@ -107,7 +107,7 @@ class SoftwareTest < Test::Unit::TestCase
   end
 
   def execute(action)
-    @driver.find_element(:xpath, "(//a[contains(text(),'#{action.capitalize}')][1])").click
+    @driver.find_element(:xpath, "(//a[contains(text(),'#{action.capitalize}')])").click
 
     assert !@timeout.times{ break if (@driver.find_element(:xpath, "#{@table}/tr[#{@base_tr}]/#{@proposal_state}").text == "#{action}ing " rescue false); sleep 1 }
 
